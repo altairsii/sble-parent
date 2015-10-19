@@ -65,4 +65,8 @@
 	<beans:bean id="sqlSession" class="org.mybatis.spring.SqlSessionTemplate">
 		<beans:constructor-arg index="0" ref="sqlSessionFactory" />
 	</beans:bean>
+	
+	<!-- filter Bean -->
+	<beans:bean id="sessionFilter" class="cn.wyb.sble.resources.common.SessionFilter" />
+	<beans:bean id="xssFilter" class="cn.wyb.sble.resources.common.XssFilter" />
 </beans:beans>
