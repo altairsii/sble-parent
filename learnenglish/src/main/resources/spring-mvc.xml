@@ -36,7 +36,7 @@
 		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
 		<beans:property name="prefix" value="/WEB-INF/views/"></beans:property>
 		<beans:property name="suffix" value=".jsp"></beans:property>
-	</beans:bean>
+	</beans:bean> 
 
 	<!-- 国际化 -->
 	<beans:bean id="messageSource"
@@ -64,6 +64,21 @@
 
 	<beans:bean id="sqlSession" class="org.mybatis.spring.SqlSessionTemplate">
 		<beans:constructor-arg index="0" ref="sqlSessionFactory" />
+	</beans:bean>
+	
+	<!-- FreeMarker -->
+	<beans:bean id="viewResolver"
+		class="org.springframework.web.servlet.view.freemarker.FreeMarkerViewResolver">
+		<beans:property name="viewClass"
+			value="org.springframework.web.servlet.view.freemarker.FreeMarkerView" />
+		<beans:property name="contentType" value="text/html; charset=utf-8" />
+	</beans:bean>
+	<beans:bean id="freeMarkerConfig"
+		class="org.springframework.web.servlet.view.freemarker.FreeMarkerConfigurer">
+		<!-- 模板根目录 -->
+		<beans:property name="templateLoaderPaths" value="/WEB-INF/views/" />
+		<!-- 编码格式 -->
+		<beans:property name="defaultEncoding" value="utf-8" />
 	</beans:bean>
 	
 	<!-- filter Bean -->
