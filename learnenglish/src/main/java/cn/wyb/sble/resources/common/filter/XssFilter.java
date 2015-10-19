@@ -1,4 +1,4 @@
-package cn.wyb.sble.resources.common;
+package cn.wyb.sble.resources.common.filter;
 
 import java.io.IOException;
 
@@ -8,20 +8,16 @@ import javax.servlet.FilterConfig;
 import javax.servlet.ServletException;
 import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
+import javax.servlet.http.HttpServletRequest;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.InitializingBean;
+import cn.wyb.sble.resources.common.filter.util.XssHttpServletRequestWrapper;
 
-public class SessionFilter implements Filter, InitializingBean {
-
-	private Logger logger = LoggerFactory.getLogger(getClass());
-	
-	@Override
-	public void afterPropertiesSet() throws Exception {
-		// TODO Auto-generated method stub
-
-	}
+/**
+ * <p>拦截防止sql注入、xss注入 </p>
+ * @author wangyongbing
+ *
+ */
+public class XssFilter implements Filter {
 
 	@Override
 	public void destroy() {
@@ -32,9 +28,9 @@ public class SessionFilter implements Filter, InitializingBean {
 	@Override
 	public void doFilter(ServletRequest request, ServletResponse response,
 			FilterChain filterChain) throws IOException, ServletException {
-		logger.debug("cn.wyb.sble.resources.common.SessionFilter.doFilter start!");
-		filterChain.doFilter(request, response);
-
+		 XssHttpServletRequestWrapper xssRequest = new XssHttpServletRequestWrapper(
+		            (HttpServletRequest) request);
+		        filterChain.doFilter(xssRequest, response);
 	}
 
 	@Override

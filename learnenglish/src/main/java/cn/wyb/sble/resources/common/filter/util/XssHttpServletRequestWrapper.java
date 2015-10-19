@@ -1,4 +1,4 @@
-package cn.wyb.sble.resources.common.filter;
+package cn.wyb.sble.resources.common.filter.util;
 
 import java.util.HashMap;
 import java.util.Map;

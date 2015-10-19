@@ -82,6 +82,6 @@
 	</beans:bean>
 	
 	<!-- filter Bean -->
-	<beans:bean id="sessionFilter" class="cn.wyb.sble.resources.common.SessionFilter" />
-	<beans:bean id="xssFilter" class="cn.wyb.sble.resources.common.XssFilter" />
+	<beans:bean id="sessionFilter" class="cn.wyb.sble.resources.common.filter.SessionFilter" />
+	<beans:bean id="xssFilter" class="cn.wyb.sble.resources.common.filter.XssFilter" />
 </beans:beans>
