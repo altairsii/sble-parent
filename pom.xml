@@ -10,6 +10,7 @@
 		<module>learnenglish</module>
 		<module>learn-account</module>
 		<module>sble-base-common</module>
+		<module>learn-webservice</module>
 	</modules>
 
 	<properties>
