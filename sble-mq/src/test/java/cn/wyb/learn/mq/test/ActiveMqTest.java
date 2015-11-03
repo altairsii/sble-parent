@@ -28,6 +28,8 @@ import org.junit.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import cn.wyb.learn.mq.service.ActiveMqService;
+
 /**
  * ClassName:ActiveMqTest <br/>
  * Function: TODO ADD FUNCTION. <br/>
@@ -45,10 +47,12 @@ public class ActiveMqTest
 
 	public static void main(String[] args)
 	{
-		String name = "wyb";
-		String url = "tcp://localhost:61666";
-		//new ActiveMqTest().test();
-		new ActiveMqTest().stopMq(name,url);
+		ActiveMqService.getInstance().startMq();
+		ActiveMqService.getInstance().stopMq();
+//		String name = "wyb";
+//		String url = "tcp://localhost:61666";
+//		//new ActiveMqTest().test();
+//		new ActiveMqTest().stopMq(name,url);
 	}
 	
 	@Test
@@ -145,5 +149,15 @@ public class ActiveMqTest
 			logger.error("关闭mq代理失败name = {},url = {}。",name,url,e);
 			e.printStackTrace();
 		}
+	}
+	
+	@Test
+	public void startMq(){
+		ActiveMqService.getInstance().startMq();
+	}
+	
+	@Test
+	public void stopMq(){
+		ActiveMqService.getInstance().stopMq();
 	}
 }
