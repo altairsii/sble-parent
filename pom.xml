@@ -11,6 +11,7 @@
 		<module>learn-account</module>
 		<module>sble-base-common</module>
 		<module>learn-webservice</module>
+		<module>sble-mq</module>
 	</modules>
 
 	<properties>
